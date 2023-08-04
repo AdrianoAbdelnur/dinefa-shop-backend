@@ -12,7 +12,7 @@ const addProductValidation = async(req, res, next)=>{
     } catch (error) {
         return res.status(500).json({message: error.message})
     }
-}
+    }
 
 module.exports= {
     addProductValidation

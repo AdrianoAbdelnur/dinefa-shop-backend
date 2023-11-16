@@ -5,7 +5,7 @@ const addProductValidation = async(req, res, next)=>{
         const {name, description, category, price, brand, model} = req.body;
         if(!name || !description || !category || !price || !brand || !model) return res.status(400).json({message: "Nombre, marca, modelo, categoría, descripcion y precio son requerido"})
         const productFound = await Product.findOne({model})
-        if(productFound.name === name && productFound.brand === brand) {
+        if(productFound?.name === name && productFound?.brand === brand) {
             return res.status(400).json({message: "Ya existe un producto con ese nombre, marca y modelo"})
         }
         next();
